@@ -1,7 +1,14 @@
-import projectTab from './dom-project-template';
 import plusImg from './img/add.png';
 
-export default function newProjectTab() {
+const projectTab = () => {
+    let content = document.querySelector('.content');
+    let addProjectTab = document.querySelector('.addProjectTab');
+    let projectTab= document.createElement('div');
+    projectTab.setAttribute('class', 'projectTab');
+    content.insertBefore(projectTab, addProjectTab);
+}
+
+const newProjectTab = () => {
     let content = document.querySelector('.content');
 
     let addProjectTab = document.createElement('div');
@@ -19,3 +26,8 @@ export default function newProjectTab() {
 
     content.appendChild(addProjectTab);
 }
+
+
+
+
+export { projectTab, newProjectTab }
