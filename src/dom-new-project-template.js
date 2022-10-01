@@ -1,17 +1,21 @@
+import projectTab from './dom-project-template';
 import plusImg from './img/add.png';
 
-export default function projectTemplateNew() {
+export default function newProjectTab() {
     let content = document.querySelector('.content');
 
-    let projectTemplate = document.createElement('div');
-    projectTemplate.setAttribute('class', 'projectSectionAdd');
+    let addProjectTab = document.createElement('div');
+    addProjectTab.setAttribute('class', 'addProjectTab');
 
     let addButton = document.createElement('button');
     addButton.setAttribute('class', 'add-new-project-btn');
     let btnImg = document.createElement('img');
     btnImg.src = plusImg;
     addButton.appendChild(btnImg);
-    projectTemplate.appendChild(addButton);
 
-    content.appendChild(projectTemplate);
+    addButton.addEventListener('click', projectTab);
+
+    addProjectTab.appendChild(addButton);
+
+    content.appendChild(addProjectTab);
 }

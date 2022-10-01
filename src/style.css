@@ -51,21 +51,22 @@ table {
 	margin: 20px;
 }
 /* style project */
-.projectSection,
-.projectSectionAdd {
+.projectTab,
+.addProjectTab {
     width: 100%;
     height: 250px;
 	margin-bottom: 20px;
+	border-radius: 15px;	
 }
 
-.projectSection {
-	background-color: red;
+.projectTab {
+	background-color: rgba(128, 128, 128, 0.425);
 }
 
 /* add new project section */
 
-.projectSectionAdd{
-	background-color: yellow;
+.addProjectTab{
+	background-color: rgba(128, 128, 128, 0.123);
 	display: flex;
 	justify-content: center;
 	align-items: center;

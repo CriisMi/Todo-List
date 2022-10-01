@@ -1,7 +1,7 @@
-export default function projectTemplate() {
+export default function projectTab() {
     let content = document.querySelector('.content');
-
-    let projectTemplate = document.createElement('div');
-    projectTemplate.setAttribute('class', 'projectSection');
-    content.appendChild(projectTemplate);
+    let addProjectTab = document.querySelector('.addProjectTab');
+    let projectTab= document.createElement('div');
+    projectTab.setAttribute('class', 'projectTab');
+    content.insertBefore(projectTab, addProjectTab);
 }
