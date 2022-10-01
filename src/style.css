@@ -62,6 +62,27 @@ table {
 	background-color: red;
 }
 
+/* add new project section */
+
 .projectSectionAdd{
-	background-color: black;
+	background-color: yellow;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-new-project-btn {
+	border: none;
+	background-color: transparent;
+	opacity: 0.3;
+}
+
+.add-new-project-btn:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.add-new-project-btn>img{
+	width: 75px;
+	height: 75px;
 }
