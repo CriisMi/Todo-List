@@ -47,10 +47,21 @@ table {
 	border-spacing: 0;
 }
 
-
+.content {
+	margin: 20px;
+}
 /* style project */
-.projectSection {
+.projectSection,
+.projectSectionAdd {
     width: 100%;
     height: 250px;
-    background-color: red;
+	margin-bottom: 20px;
+}
+
+.projectSection {
+	background-color: red;
+}
+
+.projectSectionAdd{
+	background-color: black;
 }
