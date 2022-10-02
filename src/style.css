@@ -47,6 +47,17 @@ table {
 	border-spacing: 0;
 }
 
+
+:root {
+	--light-color: #fffbf8;
+	--dark-color: #000001;
+	--medium-color: #f2d0a4;
+	--transparent-medium-color: #f2d0a4a8;
+	--light-accent-color: #f8ead1;
+	--transparent-light-accent-color: #f8ead196;
+	--dark-accent-color: #8b635c;
+}
+
 .content {
 	padding: 20px;
 	display: flex;
@@ -63,16 +74,14 @@ table {
 }
 
 .projectTab {
-	background-color: rgba(128, 128, 128, 0.425);
+	background-color: var(--light-accent-color);
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 }
 
-/* add new project section */
-
 .addProjectTab{
-	background-color: rgba(128, 128, 128, 0.123);
+	background-color: var(--transparent-light-accent-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -106,11 +115,11 @@ table {
 }
 
 .groupTab {
-	background-color: rgba(0, 0, 0, 0.363);
+	background-color: var(--medium-color);
 }
 
 .addGroupTab {
-	background-color: rgba(0, 0, 0, 0.253);
+	background-color: var(--transparent-medium-color);
 	margin-right: 15px;
 	display: flex;
 	justify-content: center;
