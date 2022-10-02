@@ -1,3 +1,4 @@
+import { groupTab, newGroupTab } from './dom-groups-tab';
 import plusImg from './img/add.png';
 
 const projectTab = () => {
@@ -5,6 +6,7 @@ const projectTab = () => {
     let addProjectTab = document.querySelector('.addProjectTab');
     let projectTab= document.createElement('div');
     projectTab.setAttribute('class', 'projectTab');
+
     content.insertBefore(projectTab, addProjectTab);
 }
 

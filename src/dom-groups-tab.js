@@ -1,7 +1,7 @@
 import plusImg from './img/add.png';
 
 const groupTab = () => {
-    let project = document.querySelector('.project');
+    let project = document.querySelector('.projectTab');
     let addGroupTab = document.querySelector('.addGroupTab');
     let groupTab = document.createElement('div');
     groupTab.setAttribute('class', 'groupTab');
