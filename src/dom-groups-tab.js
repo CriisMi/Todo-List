@@ -1,15 +1,16 @@
 import plusImg from './img/add.png';
 
-const groupTab = () => {
-    let project = document.querySelector('.projectTab');
-    let addGroupTab = document.querySelector('.addGroupTab');
+const groupTab = (e) => {
+    let project = e.target.closest('.projectTab');
+    console.log(project);
+    let addGroupTab = e.target.closest('.addGroupTab');
     let groupTab = document.createElement('div');
     groupTab.setAttribute('class', 'groupTab');
     project.insertBefore(groupTab, addGroupTab);
 }
 
-const newGroupTab = () => {
-    let project = document.querySelector('.projectTab');
+const newGroupTab = (projectTab) => {
+    let project = projectTab;
 
     let addGroupTab = document.createElement('div');
     addGroupTab.setAttribute('class', 'addGroupTab');
@@ -22,7 +23,7 @@ const newGroupTab = () => {
 
     addButton.addEventListener('click', groupTab);
 
-    addGroupTab.appendChild(addButton);
+    addGroupTab.appendChild(addButton);   
 
     project.appendChild(addGroupTab);
 }

@@ -7,6 +7,8 @@ const projectTab = () => {
     let projectTab= document.createElement('div');
     projectTab.setAttribute('class', 'projectTab');
 
+    newGroupTab(projectTab);
+
     content.insertBefore(projectTab, addProjectTab);
 }
 
