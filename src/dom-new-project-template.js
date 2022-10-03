@@ -6,10 +6,29 @@ const groupTab = (e) => {
     let addGroupTab = e.target.closest('.addGroupTab');
     let groupTab = document.createElement('div');
     groupTab.setAttribute('class', 'groupTab');
+
+    /* add name */
     let name = document.createElement('input');
     name.setAttribute('type', 'text');
     name.setAttribute('placeholder', 'task');
     groupTab.appendChild(name);
+
+    /* add due date */
+    let dueDate = document.createElement('input');
+    dueDate.setAttribute('type', 'date');
+    groupTab.appendChild(dueDate);
+
+    /* add priority */
+    let priorityList = document.createElement('select');
+    let priorityOptions = ['low', 'medium', 'high'];
+    for (let i = 0; i < priorityOptions.length; i++) {
+        let option = document.createElement("option");
+        option.value = priorityOptions[i];
+        option.text = priorityOptions[i];
+        priorityList.appendChild(option);
+    }
+    groupTab.appendChild(priorityList);
+
     project.insertBefore(groupTab, addGroupTab);
 }
 
