@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import plusImg from './img/add.png';
 import { projects, newProject, newTodoItem } from './projects';
 
@@ -9,18 +10,28 @@ const groupTab = (e) => {
     let groupTab = document.createElement('div');
     groupTab.setAttribute('class', 'groupTab');
 
+    let currentProject = (projects.getProjectsList())[projectIndex];
+    currentProject.addTask(newTodoItem('Task','2','3'));
+
+    
     /* add name */
     let name = document.createElement('input');
     name.setAttribute('type', 'text');
     name.setAttribute('placeholder', 'Task');
-    name.setAttribute('class', 'todoTask')
+    name.setAttribute('class', 'todoTask');
+    name.addEventListener('change', (event) =>{
+        let taskIndex = Array.from(project.children).indexOf(name.parentNode);
+        (currentProject.getTasks()[taskIndex]).changeTask(name.value);
+    }); 
     groupTab.appendChild(name);
 
     /* add due date */
     let dueDate = document.createElement('input');
     dueDate.setAttribute('type', 'date');
-    dueDate.setAttribute('placeholder', ' ');
-    dueDate.setAttribute('class', 'todoDueDate');
+    dueDate.addEventListener('change', (event) =>{
+        let taskIndex = Array.from(project.children).indexOf(dueDate.parentNode);
+        (currentProject.getTasks()[taskIndex]).changeDueDate(dueDate.value); 
+    }); 
     groupTab.appendChild(dueDate);
 
     /* add priority */
@@ -33,11 +44,15 @@ const groupTab = (e) => {
         option.text = priorityOptions[i];
         option.setAttribute('class', 'todoPriorityOption');
         priorityList.appendChild(option);
-    }
+    };
+    priorityList.addEventListener('change', (event) =>{
+        let taskIndex = Array.from(project.children).indexOf(priorityList.parentNode);
+        (currentProject.getTasks()[taskIndex]).changePriority(priorityList.value);
+        console.log((currentProject.getTasks()));
+    }); 
     groupTab.appendChild(priorityList);
 
-    
-    (projects.getProjectsList())[projectIndex].addTask(newTodoItem('1','2','3'));
+   
 
     project.insertBefore(groupTab, addGroupTab);
 }

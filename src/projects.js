@@ -23,11 +23,17 @@ const newProject = () => {
 
 /* create todo item */
 const newTodoItem = (task, dueDate, priority) => {
-    const setTask = (newTask) => {
+    const changeTask = function(newTask){
         this.task = newTask;
+    };
+    const changeDueDate = function(newDueDate){
+        this.dueDate = newDueDate;
+    }
+    const changePriority = function(newPriority){
+        this.priority = newPriority;
     }
 
-    return {task, dueDate, priority};
+    return {task, dueDate, priority, changeTask, changeDueDate, changePriority};
     
 }
 
