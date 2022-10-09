@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+
 import plusImg from './img/add.png';
 import { projects, newProject, newTodoItem } from './projects';
 
@@ -31,6 +31,7 @@ const groupTab = (e) => {
     dueDate.addEventListener('change', (event) =>{
         let taskIndex = Array.from(project.children).indexOf(dueDate.parentNode);
         (currentProject.getTasks()[taskIndex]).changeDueDate(dueDate.value); 
+        currentProject.rearrangeTasks();
     }); 
     groupTab.appendChild(dueDate);
 
@@ -112,5 +113,8 @@ const newProjectTab = () => {
 
     content.appendChild(addProjectTab);
 }
+
+
+
 
 export { projectTab, newProjectTab, groupTab, newGroupTab}

@@ -1,3 +1,5 @@
+import { compareAsc, getYear, parseISO } from 'date-fns';
+
 const projects = (() => {
     let projectsList = [];
     const getProjectsList = () => projectsList;
@@ -18,11 +20,26 @@ const newProject = () => {
         tasks.push(newTask);
     }
 
-    return {getTasks, addTask, tasks};
+    /* rearrange tasks cronologically */
+    const rearrangeTasks = function() {
+       tasks.sort((a, b) => compareAsc(parseISO(a.getDueDate()), parseISO(b.getDueDate())));
+    }
+    return {getTasks, addTask,rearrangeTasks, tasks};
 };
 
 /* create todo item */
 const newTodoItem = (task, dueDate, priority) => {
+
+    const getTask = function() {
+        return this.task;
+    };
+
+    const getDueDate = function() {
+        return this.dueDate;
+    };
+    const getPriority= function() {
+        this.priority;
+    };
     const changeTask = function(newTask){
         this.task = newTask;
     };
@@ -33,7 +50,7 @@ const newTodoItem = (task, dueDate, priority) => {
         this.priority = newPriority;
     }
 
-    return {task, dueDate, priority, changeTask, changeDueDate, changePriority};
+    return {getTask, getDueDate, getPriority, changeTask, changeDueDate, changePriority};
     
 }
 
