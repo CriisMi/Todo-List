@@ -1,4 +1,5 @@
 
+import { compareAsc, format, parseISO, toDate } from 'date-fns';
 import plusImg from './img/add.png';
 import { projects, newProject, newTodoItem } from './projects';
 
@@ -27,10 +28,13 @@ const groupTab = (e) => {
 
     /* add due date */
     let dueDate = document.createElement('input');
+
     dueDate.setAttribute('type', 'date');
+    let today = format(new Date(), 'yyyy-MM-dd').toString(); 
+    dueDate.value = today;
     dueDate.addEventListener('change', (event) =>{
         let taskIndex = Array.from(project.children).indexOf(dueDate.parentNode);
-        (currentProject.getTasks()[taskIndex]).changeDueDate(dueDate.value); 
+        (currentProject.getTasks()[taskIndex]).changeDueDate(dueDate.value);         
         currentProject.rearrangeTasks();
     }); 
     groupTab.appendChild(dueDate);
