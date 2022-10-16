@@ -1,57 +1,45 @@
-import { compareAsc, getYear, parseISO } from 'date-fns';
+import { compareAsc, parseISO } from 'date-fns';
 
-const projects = (() => {
+const projectList = (() => {
     let projectsList = [];
     const getProjectsList = () => projectsList;
     const addProject = newProject => {
         projectsList.push(newProject);
     }
 
-    return{getProjectsList, addProject};
-
-    
+    return {getProjectsList, addProject};
 })();
 
 /* create project */
-const newProject = () => {
+const Project = () => {
     let tasks = [];
     const getTasks = () => tasks;
     const addTask = newTask => {
         tasks.push(newTask);
     }
-
     /* rearrange tasks cronologically */
     const rearrangeTasks = function() {
        tasks.sort((a, b) => compareAsc(parseISO(a.getDueDate()), parseISO(b.getDueDate())));
     }
-    return {getTasks, addTask,rearrangeTasks, tasks};
+    return {getTasks, addTask, rearrangeTasks};
+};
+ 
+/* create todo item */
+const Task = (name, dueDate, priority) => {
+    const getName = () => name;
+    const getDueDate = () => dueDate;
+    const getPriority = () => priority;
+    const changeName = newName => {
+        name = newName;
+    }
+    const changeDueDate = newDueDate => {
+        dueDate = newDueDate;
+    }
+    const changePriority = newPriority => {
+        priority = newPriority;
+    }
+
+    return {getName, getDueDate, getPriority, changeName, changeDueDate, changePriority};
 };
 
-/* create todo item */
-const newTodoItem = (task, dueDate, priority) => {
-
-    const getTask = function() {
-        return this.task;
-    };
-
-    const getDueDate = function() {
-        return this.dueDate;
-    };
-    const getPriority= function() {
-        this.priority;
-    };
-    const changeTask = function(newTask){
-        this.task = newTask;
-    };
-    const changeDueDate = function(newDueDate){
-        this.dueDate = newDueDate;
-    }
-    const changePriority = function(newPriority){
-        this.priority = newPriority;
-    }
-
-    return {getTask, getDueDate, getPriority, changeTask, changeDueDate, changePriority};
-    
-}
-
-export {projects, newProject, newTodoItem};
+export {projectList, Project, Task};
