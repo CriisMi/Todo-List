@@ -115,12 +115,29 @@ table {
 
 /* style todo elements */
 .groupTab,
-.addGroupTab {
+.addGroupTab,
+.projectInfoTab {
     width: 230px;
 	padding: 10px;
     height: 50px;
 	border-radius: 15px;
+}
 
+.projectInfoTab {
+	border: solid 2px var(--dark-accent-color);
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+.projectName {
+	width: 100%;
+	background-color: var(--medium-color);
+	border: none;
+	border-radius: 10px;
+    font-size: 16px;
+	text-align: center;
+	color: var(--dark-color);
 }
 
 .groupTab {

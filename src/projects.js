@@ -12,7 +12,12 @@ const projectList = (() => {
 
 /* create project */
 const Project = () => {
+    let name = 'New Project';
     let tasks = [];
+    const getName = () => name;
+    const changeName = newName => {
+        name = newName;
+    }
     const getTasks = () => tasks;
     const addTask = newTask => {
         tasks.push(newTask);
@@ -21,7 +26,7 @@ const Project = () => {
     const rearrangeTasks = function() {
        tasks.sort((a, b) => compareAsc(parseISO(a.getDueDate()), parseISO(b.getDueDate())));
     }
-    return {getTasks, addTask, rearrangeTasks};
+    return {getName, changeName, getTasks, addTask, rearrangeTasks};
 };
  
 /* create todo item */

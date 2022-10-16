@@ -13,16 +13,36 @@ const newProjectTab = () => {
     addButton.addEventListener('click', renderNewProject);
     addProjectTab.appendChild(addButton);
     content.appendChild(addProjectTab);
-}
+};
 
 const renderNewProject = () => {
     let projectTab = document.createElement('div');
     projectTab.setAttribute('class', 'projectTab');
     let newProject = Project();
     projectList.addProject(newProject);
+    projectTab.appendChild(renderProjectInfo(newProject));
     projectTab.appendChild(newGroupTab(newProject));
     content.insertBefore(projectTab, content.lastChild);
+};
+
+//render project info tab
+const renderProjectInfo = (project) => {
+    let projectInfoTab = document.createElement('div');
+    projectInfoTab.setAttribute('class', 'projectInfoTab');
+    projectInfoTab.appendChild(renderProjectNameElement(project));
+    return projectInfoTab;
 }
+
+// create project name 
+const renderProjectNameElement = (project) => {
+    let nameElement = document.createElement('textarea');
+    nameElement.value = project.getName();
+    nameElement.setAttribute('class', 'projectName');
+    nameElement.addEventListener('change', () =>{
+        project.changeName(nameElement.value); 
+    }); 
+    return nameElement;
+};
 
 // create add todo element tab 
 const newGroupTab = (project) => {
@@ -57,6 +77,7 @@ const renderProject = (project) => {
     while (projectTab.firstChild) {
         projectTab.firstChild.remove();
     };
+    projectTab.appendChild(renderProjectInfo(project));
     projectTab.appendChild(newGroupTab(project));
     let tasks = project.getTasks();
     for (let i = 0; i < tasks.length; i++) {
@@ -108,7 +129,6 @@ const renderPriorityListElement = (task) => {
     }); 
     return priorityListElement;
 };
-
 
 const createButton = (btnClass) => {
     let addButton = document.createElement('button');
